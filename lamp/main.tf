@@ -6,6 +6,10 @@ resource "aws_s3_bucket" "my_first_bucket" {
   bucket = "webplumbr-terraform-bucket-001"
 }
 
+output "bucket_name" {
+  value = "${aws_s3_bucket.my_first_bucket.arn}"
+}
+
 resource "aws_iam_policy" "my_bucket_policy" {
   name = "my-bucket-policy"
   policy = <<POLICY
